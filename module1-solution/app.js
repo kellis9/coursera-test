@@ -7,7 +7,8 @@
     LunchCheckController.$inject = ['$scope', '$filter'];
     function LunchCheckController($scope, $filter) {
         $scope.userInput = '';
-
+        $scope.message = '';
+        
         /**
          * @name checkUserEnteredValues
          * @description split user entered string into array of values separated by comma
