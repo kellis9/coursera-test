@@ -31,7 +31,7 @@
       <button class="btn btn-default"
           ng-click="checkUserEnteredValues()">Check If Too Much</button>
     </div>
-    <div class="form-group message">
+    <div class="form-group message" ng-if="message">
       {{message}}
     </div>
   </div>
