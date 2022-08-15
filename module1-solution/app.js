@@ -17,7 +17,7 @@
                 $scope.message = 'Please enter data first';
             } else {
                 const arrayOfUserEnteredValues = $scope.userInput.split(',');
-                $scope.validateUserInputLength(arrayOfUserEnteredValues);
+                $scope.getCountOfNonEmptyValues(arrayOfUserEnteredValues);
             }
         }
 
@@ -34,15 +34,14 @@
                     count++;
                 }
             });
-            return count;
+            $scope.validateUserInputLength(count);
         }
 
         /**
          * @name validateUserInputLength
          * @description check length of array to determine which message to display
          */
-        $scope.validateUserInputLength = function (array) {
-            let finalCount = $scope.getCountOfNonEmptyValues(array);
+        $scope.validateUserInputLength = function (finalCount) {
             if (finalCount <= 3 && finalCount !== 0) {
                 $scope.message = 'Enjoy!';
             } else if (finalCount > 3) {
