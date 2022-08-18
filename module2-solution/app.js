@@ -36,7 +36,7 @@
         let leftToBuy = [
             { name: 'Cookies', quantity: 5 },
             { name: 'Chips', quantity: 4 },
-            { name: 'Apple Juice', quantity: 2 },
+            { name: 'Oranges', quantity: 2 },
             { name: 'Yogurt', quantity: 3 },
             { name: 'Peanut Butter', quantity: 1 },
             { name: 'Bagels', quantity: 5 }]
