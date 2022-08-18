@@ -9,10 +9,15 @@
     ToBuyController.$inject = ['ShoppingListCheckOffService'];
     function ToBuyController(ShoppingListCheckOffService) {
         let toBuy = this;
-        toBuy.leftToBuyList = [];
 
         toBuy.leftToBuyList = ShoppingListCheckOffService.getLeftToBuy();
 
+        /**
+         * Sends the item that is bought to the purchased list
+         * @param {Number} index 
+         * @param {String} itemName 
+         * @param {Number} itemQuantity 
+         */
         toBuy.markItemAsBought = function(index, itemName, itemQuantity) {
             ShoppingListCheckOffService.updateShoppingLists(index, itemName, itemQuantity);
         }
@@ -37,32 +42,28 @@
             { name: 'Bagels', quantity: 5 }]
         let alreadyPurchased = [];
 
+        /**
+         * @description Fetch the list of items left to buy
+         * @returns array of items left to buy
+         */
         service.getLeftToBuy = function () {
             return leftToBuy;
         }
 
-        service.setLeftToBuy = function (leftToBuyList) {
-            leftToBuy = leftToBuyList;
-        }
-
+        /**
+         * @description Fetch list of items already purchased
+         * @returns list of items already purchased
+         */
         service.getAlreadyPurchased = function () {
             return alreadyPurchased;
         }
 
-        service.setAlreadyPurchased = function (alreadyPurchacedList) {
-            alreadyPurchased = alreadyPurchacedList;
-        }
-
-        service.addToPurchasedList = function (itemName, quantity) {
-            let item = {
-                name: itemName,
-                quantity: quantity
-            };
-
-            alreadyPurchased.push(item);
-        }
-
-
+        /**
+         * Remove item that was bought and add it to the purchased list
+         * @param {Number} itemIndex 
+         * @param {String} itemName 
+         * @param {Number} itemQuantity 
+         */
         service.updateShoppingLists = function (itemIndex, itemName, itemQuantity) {
             let itemBought = {
                 name: itemName,
