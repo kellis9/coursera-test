@@ -26,6 +26,11 @@
     function NarrowItDownController(MenuSearchService) {
         let $ctrl = this;
         $ctrl.userInput = '';
+
+        /**
+         * @description find matching menu items to user input 
+         * @param {String} userInput 
+         */
         $ctrl.getMatchedMenuItems = function (userInput) {
             let matchPromise = MenuSearchService.getMatchedMenuItems(userInput);
             matchPromise.then(function (response) {
@@ -41,6 +46,10 @@
             });
         }
 
+        /**
+         * @description remove item from list of matching values
+         * @param {Number} index 
+         */
         $ctrl.removeItem = function (index) {
             $ctrl.found.splice(index, 1);
         };
@@ -51,6 +60,11 @@
     function MenuSearchService($http) {
         let service = this;
 
+        /**
+         * @description find matching items from json 
+         * @param {String} searchTerm 
+         * @returns 
+         */
         service.getMatchedMenuItems = function (searchTerm) {
             return $http({
                 method: "GET",
