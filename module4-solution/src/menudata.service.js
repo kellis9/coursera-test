@@ -2,11 +2,11 @@
   'use strict';
 
   angular.module('Data')
-    .service('DataMenuService', DataMenuService);
+    .service('MenuDataService', MenuDataService);
 
 
-  DataMenuService.$inject = ['$http']
-  function DataMenuService($http) {
+  MenuDataService.$inject = ['$http']
+  function MenuDataService($http) {
     var service = this;
 
     service.getAllCategories = function () {

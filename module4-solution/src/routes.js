@@ -18,8 +18,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/templates/categorylist.template.html',
     controller: 'MainCategoryListController as mainList',
     resolve: {
-      items: ['DataMenuService', function (DataMenuService) {
-        return DataMenuService.getAllCategories();
+      items: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getAllCategories();
       }]
     }
   })
@@ -28,8 +28,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/templates/itemdetailedList.template.html',
     controller: "ItemDetailController as itemDetail",
     resolve: {
-      itemLists: ['$stateParams','DataMenuService', function ($stateParams, DataMenuService) {
-        return DataMenuService.getItemsForCategory($stateParams.itemShortName);
+      itemLists: ['$stateParams','MenuDataService', function ($stateParams, MenuDataService) {
+        return MenuDataService.getItemsForCategory($stateParams.itemShortName);
       }]
     }
   });
