@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="text-center">Personal Profile</h2>
+  <a ></a>
+
+  <div ng-if="myInfoController.userInformation.firstName">
+    <div>
+      <label>First Name: </label>
+      <span>{{myInfoController.userInformation.firstName}}</span>
+    </div>
+    <div>
+      <label>Last Name: </label>
+      <span>{{myInfoController.userInformation.lastName}}</span>  
+    </div>
+    <div> 
+      <label>Email: </label>
+      <span>{{myInfoController.userInformation.email}}</span>
+    </div>
+    <div>
+      <label>Phone: </label>
+      <span>{{myInfoController.userInformation.phone}}</span>
+    </div>
+    <div>
+      <label>Favorite Menu Item Information</label>
+      <span>Name: {{myInfoController.userInformation.menuItemData.name}}</span> </br>
+      <span>Description: {{myInfoController.userInformation.menuItemData.description}}</span> </br>
+      <img class="img-responsive" width="250" height="150" ng-src="{{myInfoController.basePath}}/images/{{myInfoController.userInformation.menuItemData.short_name}}.jpg" alt="{{$ctrl.menuItem.name}}">
+    </div>
+  </div>
+  <span ng-if="!myInfoController.userInformation.firstName">Not signed up yet. <a ui-sref="public.signUp">Sign Up Now!</a></span>
+</div>

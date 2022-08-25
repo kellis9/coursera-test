@@ -1,0 +1,40 @@
+<div class="container" ng-controller="SignUpController as signUpController">
+  <h2 class="text-center">Sign Up</h2>
+  <form name='signUpController.signUpForm' novalidate class="sign-up-form" >
+    <input  class="form-control input-group" type="text" name="firstName" placeholder="First Name" ng-model="signUpController.user.firstName" required>
+    <span ng-if="signUpController.signUpForm.firstName.$error.required && signUpController.signUpForm.firstName.$touched">
+      First Name is required
+    </span>
+    <br>
+    <input class="form-control input-group" type="text" name="lastName" placeholder="Last Name" ng-model="signUpController.user.lastName" required>
+    <span ng-if="signUpController.signUpForm.lastName.$error.required && signUpController.signUpForm.lastName.$touched">
+      Last Name is required
+    </span>
+    <br>
+    <input  class="form-control input-group" type="email" name="email" placeholder="Email" 
+    ng-model="signUpController.user.email" required>
+    <span ng-if="signUpController.signUpForm.email.$invalid && signUpController.signUpForm.email.$touched">
+      Valid email address: value@domain required
+    </span>
+    <br>
+    <input class="form-control input-group" type="text" name="phone" placeholder="###-###-####" 
+      ng-model="signUpController.user.phone"
+      required
+      pattern="(\d{3})-(\d{3})-(\d{4})">
+    <span ng-if="signUpController.signUpForm.phone.$invalid && signUpController.signUpForm.phone.$touched">
+      Phone Number required format ###-###-####.
+    </span>
+    <br>
+    <input class="form-control input-group" type="text" name="favoriteItem" placeholder="Favorite Menu Item" 
+    ng-model="signUpController.user.favoriteItem" required>
+    <span ng-if="signUpController.signUpForm.favoriteItem.$invalid && signUpController.signUpForm.favoriteItem.$touched">
+      Favorite Menu Item is Required
+    </span>
+    <br>
+    <button ng-disabled="signUpController.signUpForm.$invalid" ng-click="signUpController.validateFavoriteMenuItem()">Submit</button>
+    <div style="margin-top: 10px;">
+      <span ng-if="signUpController.message">{{signUpController.message}}</span>
+    </div>
+  </form>
+  </fieldset>
+</div>
